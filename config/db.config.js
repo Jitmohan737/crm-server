@@ -1,11 +1,11 @@
-import pg from 'pg';
-const pool = new pg.Pool({
-    user: 'postgres',
-    password: 'postgres',
-    host: 'localhost',
-    port: 5432,
-    database: 'crud_db',
-
-})
-
-export default pool;
+import Sequelize from "sequelize";
+const sequelize = new Sequelize(
+    process.env.DB,
+    process.env.USERNAME,
+    process.env.PASSWORD,
+    {
+        dialect: process.env.DIALECT,
+        host: process.env.HOST
+    }
+)
+export default sequelize;
